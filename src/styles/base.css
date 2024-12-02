@@ -1,0 +1,102 @@
+#my-root {
+  --color-brand: #a729f5;
+
+  &,
+  &.light {
+    --color-grey-0: #ffffff;
+    --color-grey-100: #f4f6fa;
+    --color-grey-200: #abc1e1;
+    --color-grey-300: #626c7f;
+    --color-grey-400: #3b4d66;
+    --color-grey-500: #313e51;
+
+    --color-theme: linear-gradient(
+      to right,
+      rgb(255 255 255 / 70%),
+      rgb(255 255 255 / 70%)
+    );
+
+    --bg-img-desktop: var(--color-theme),
+      url("/assets/images/pattern-background-desktop-light.svg");
+    --bg-img-tablet: var(--color-theme),
+      url("/assets/images/pattern-background-tablet-light.svg");
+    --bg-img-mobile: var(--color-theme),
+      url("/assets/images/pattern-background-mobile-light.svg");
+  }
+  &.dark {
+    --color-grey-0: #313e51;
+    --color-grey-100: #3b4d66;
+    --color-grey-200: #626c7f;
+    --color-grey-300: #abc1e1;
+    --color-grey-400: #f4f6fa;
+    --color-grey-500: #ffffff;
+
+    --color-theme: linear-gradient(
+      to right,
+      rgb(24 33 47 / 99%),
+      rgb(24 33 47 /99%)
+    );
+
+    --bg-img-desktop: var(--color-theme),
+      url("/assets/images/pattern-background-desktop-dark.svg");
+    --bg-img-tablet: var(--color-theme),
+      url("/assets/images/pattern-background-tablet-dark.svg");
+    --bg-img-mobile: var(--color-theme),
+      url("/assets/images/pattern-background-mobile-dark.svg");
+  }
+
+  --color-green: #26d782;
+  --color-red: #ee5454;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-sm-hover: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.2);
+
+  --radius-sm: 5px;
+  --radius-md: 7px;
+  --radius-lg: 9px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  /* Creating animations for dark mode */
+  transition: background-color 0.3s, border 0.3s;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.7;
+}
+
+body {
+  font-size: 1.7rem;
+  font-family: Rubik;
+  letter-spacing: 1.5px;
+}
+
+/* 
+  -------------- BACKGROUND IMAGE 
+   --responsive-mobile-sm: 28.125em ;
+ --responsive-mobile: 37.5em ;
+ --responsive-tablet: 56.25em;
+ --responsive-desktop: 75em;
+ --responsive-desktop-lg: 112.5em;
+*/
+
+@media screen and (min-width: 37.5em) {
+  html {
+    font-size: 72.5%;
+  }
+}
+
+@media screen and (min-width: 56.25em) {
+  html {
+    font-size: 82.5%;
+  }
+}
