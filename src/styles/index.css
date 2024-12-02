@@ -15,7 +15,7 @@
 }
 
 .lg\:flex-row {
-  @media screen and (min-width: 56.25em ){
+  @media screen and (min-width: 56.25em) {
     flex-direction: row !important;
   }
 }
@@ -254,22 +254,28 @@
 }
 
 .md\:p-5 {
-  @media screen and (min-width: 37.5em ){
+  @media screen and (min-width: 37.5em) {
     padding: 5rem;
   }
-} 
+}
 
 .lg\:px-20 {
   @media screen and (min-width: 56.25em) {
+    padding-inline: 20rem;
+  }
+}
+
+.x-lg\:px-30 {
+  @media screen and (min-width: 75em) {
     padding-inline: 30rem;
   }
 }
 
 .md\:py-5 {
-  @media screen and (min-width: 37.5em ){
+  @media screen and (min-width: 37.5em) {
     padding-block: 5rem;
   }
-} 
+}
 
 /* 
   -------------- Border and Border radius
