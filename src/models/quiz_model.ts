@@ -33,11 +33,11 @@ export type QuizAction = {
     payload?: QuizPayload
 
 }
- | {
-    type: QuizActions.FINISHED,
-    payload?: QuizPayload
+    | {
+        type: QuizActions.FINISHED,
+        payload?: QuizPayload
 
-}
+    }
 
 export type QuizContextState = {
     quizState: QuizState,
@@ -45,6 +45,7 @@ export type QuizContextState = {
     questions: QuizQuestion[],
     setSelectedTopic(topic: string): void,
     setQuizState(action: QuizAction): void
+    setCurrentTopic(topic: QuizTopic | null): void,
 }
 
 export type QuizTopic = {

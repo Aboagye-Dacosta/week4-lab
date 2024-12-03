@@ -33,7 +33,7 @@ export default function Header() {
           }
           alt=""
         />
-        <Switch onChange={() => toggleTheme()} />
+        <Switch onChange={() => toggleTheme()} state={theme == "dark"} />
         <img
           src={
             theme == "light"

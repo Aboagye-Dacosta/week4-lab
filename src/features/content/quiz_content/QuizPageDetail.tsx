@@ -19,10 +19,12 @@ export default function QuizPageDetail() {
         <Paragraph style="italic">
           Question {count + 1} of {questions.length}
         </Paragraph>
-        <Paragraph variation="medium" weight="bold">
-          {questions[count].question}
-        </Paragraph>
-        <ProgressIndicator current={count + 1} total={questions.length} />
+        <div className="flex flex-col justify-between flex-1 gap-2 max-h-[30rem]">
+          <Paragraph variation="medium-sm" weight="bold">
+            {questions[count].question}
+          </Paragraph>
+          <ProgressIndicator current={count + 1} total={questions.length} />
+        </div>
       </ContentHeader>
       <ContentBody>
         <QuestionOptionsList />

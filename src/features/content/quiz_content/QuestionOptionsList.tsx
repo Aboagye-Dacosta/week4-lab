@@ -17,11 +17,13 @@ export default function QuestionOptionsList() {
           key={option}
           option={option}
           tag={optionTags[i]}
+          isSelectedOption={selectedAnswer?.id == i}
           state={
             !hasAnswered
               ? "neutral"
               : correctAnswer?.id == i ||
-               ( selectedAnswer?.id == correctAnswer?.id && selectedAnswer?.id == i)
+                (selectedAnswer?.id == correctAnswer?.id &&
+                  selectedAnswer?.id == i)
               ? "correct"
               : selectedAnswer?.id == i &&
                 selectedAnswer.id != correctAnswer?.id

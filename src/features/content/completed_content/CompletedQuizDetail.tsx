@@ -10,7 +10,7 @@ import ContentHeader from "../layout/ContentHeader";
 import CompletedScoreCard from "./CompletedScoreCard";
 
 export default function CompletedQuizDetail() {
-  const { setQuizState } = useQuiz();
+  const { setQuizState, setCurrentTopic } = useQuiz();
   const { setPageState } = usePageSwitch();
   return (
     <>
@@ -27,6 +27,8 @@ export default function CompletedQuizDetail() {
         <Button
           onClick={() => {
             setQuizState({ type: QuizActions.FINISHED });
+            setCurrentTopic(null);
+            localStorage.clear();
             setPageState(PageActions.INITIAL);
           }}
         >

@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { Page, PageActions, PageState } from "../models/page_switch_model";
 import { pageSwitchReducer } from "../utils/page_switch_reducer";
 
@@ -11,7 +12,8 @@ const initState: PageState = {
 export const QuizPageSwitchContext = createContext<Page | null>(initPage);
 
 export function usePageSwitchContext() {
-    const [pageState, disPatchAction] = useReducer(pageSwitchReducer, initState);
+    const [page, setPage] = useLocalStorageState<PageState>(initState, "page");
+    const [pageState, disPatchAction] = useReducer(pageSwitchReducer.bind({ persist: setPage }), page);
 
     const setPageState = (action: PageActions) => {
         disPatchAction({ type: action })

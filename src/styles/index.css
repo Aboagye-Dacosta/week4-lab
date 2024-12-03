@@ -71,6 +71,21 @@
   }
 }
 
+/*
+  ----------------- BACKGROUND COLOR
+
+   --color-grey-0: #ffffff;
+    --color-grey-100: #f4f6fa;
+    --color-grey-200: #abc1e1;
+    --color-grey-300: #626c7f;
+    --color-grey-400: #3b4d66;
+    --color-grey-500: #313e51;
+      --color-green: #26d782;
+  --color-red: #ee5454;
+  --color-brand: #a729f5;
+
+*/
+
 .bg-grey-0 {
   background-color: var(--color-grey-0);
 }
@@ -165,6 +180,10 @@
   height: 100%;
 }
 
+.max-h-\[30rem\] {
+  max-height: 25rem;
+}
+
 .min-h-\[100vh\] {
   min-height: 100vh;
 }
@@ -183,6 +202,7 @@
 .fs-\[2rem\] {
   font-size: 2rem;
 }
+
 .fs-\[1\.2rem\] {
   font-size: 1.2rem;
 }

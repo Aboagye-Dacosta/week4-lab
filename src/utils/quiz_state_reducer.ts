@@ -4,11 +4,11 @@ export function quizStateReduce(
     state: QuizState,
     action: QuizAction
 ): QuizState {
-    console.log(state);
+    let currentState: QuizState;
     switch (action.type) {
         case QuizActions.INITIAL: {
             const answer = action.payload!.question!.answer;
-            return {
+            currentState = {
                 question: action.payload!.question!,
                 correctAnswer: {
                     value: answer,
@@ -21,31 +21,35 @@ export function quizStateReduce(
                 score: 0,
             };
         }
+            break;
         case QuizActions.ANSWERED:
-            return {
+            currentState = {
                 ...state,
                 selectedAnswer: action.payload!.selectedAnswer!,
             };
+            break;
         case QuizActions.SUBMITTED: {
             if (!state.selectedAnswer || !state.selectedAnswer!.value) {
-                return {
+                currentState = {
                     ...state,
                     selectedAnswer: { id: 0, value: "" },
                 }
+                break;
             }
             const isAnswerCorrect =
                 state.correctAnswer!.id == state.selectedAnswer?.id;
-            return {
+            currentState = {
                 ...state,
                 isAnswerCorrect,
                 score: isAnswerCorrect ? state.score + 1 : state.score,
                 hasAnswered: true,
             };
         }
+            break;
         case QuizActions.COMPLETED:
             {
                 const answer = action.payload!.question!.answer;
-                return {
+                currentState = {
                     ...state,
                     selectedAnswer: null,
                     hasAnswered: false,
@@ -56,8 +60,9 @@ export function quizStateReduce(
                     count: state.count + 1,
                 };
             }
+            break;
         case QuizActions.FINISHED:
-            return {
+            currentState = {
                 question: null,
                 correctAnswer: null,
                 selectedAnswer: null,
@@ -66,5 +71,11 @@ export function quizStateReduce(
                 count: 0,
                 score: 0,
             }
+
+
     }
+
+    //@ts-expect-error is available
+    this.persist(currentState);
+    return currentState;
 }

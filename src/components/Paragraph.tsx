@@ -13,9 +13,10 @@ export default function Paragraph({
     <p
       className={`align-left ${weight} ${style} ${
         variation == "x-large" && "fs-[8rem]"
-      } ${variation == "large" && "fs-[5rem]"} ${
-        variation == "medium" && "fs-[3rem]"
-      } ${variation == "small" && "fs-[1.2rem]"}`}
+        } ${variation == "large" && "fs-[5rem]"} 
+       ${variation == "medium" && "fs-[3rem]"} 
+       ${variation == "medium-sm" && "fs-[2rem]"} 
+       ${variation == "small" && "fs-[1.2rem]"}`}
     >
       {children}
     </p>

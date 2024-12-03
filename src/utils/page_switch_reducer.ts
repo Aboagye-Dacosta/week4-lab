@@ -1,22 +1,29 @@
 import { PageAction, PageActions, PageState } from "../models/page_switch_model";
 
 export function pageSwitchReducer(state: PageState, action: PageAction): PageState {
+    let currentState: PageState;
     switch (action.type) {
         case PageActions.INITIAL:
-            return {
+            currentState = {
                 ...state,
                 state: "initial",
             }
+            break;
         case PageActions.PENDING:
-            return {
+            currentState = {
                 ...state,
                 state: "pending",
             }
+            break;
         case PageActions.COMPLETED:
-            return {
+            currentState = {
                 ...state,
                 state: "completed",
             }
+            break;
         default: throw new Error("sorry the action does not exist")
     }
+    //@ts-expect-error available
+    this.persist(currentState);
+    return currentState;
 }
