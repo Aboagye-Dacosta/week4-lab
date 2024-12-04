@@ -5,6 +5,7 @@ export default function QuestionOptionCard({
   option,
   tag,
   isSelectedOption,
+  disabled,
   onClick,
 }: {
   option: string;
@@ -12,13 +13,15 @@ export default function QuestionOptionCard({
   state: "correct" | "wrong" | "neutral";
   isSelectedOption: boolean;
   onClick: () => void;
+  disabled: boolean;
 }) {
   return (
     <button
       className={`flex items-center justify-between gap-2 border-none bg-grey-0 focus:outline-brand shadow-sm hover:shadow-md w-100 group p-1 radius-lg f-grey-500 ${
         state == "correct" && isSelectedOption && "outline-green"
       } ${state == "wrong" && isSelectedOption && "outline-red"}`}
-      onClick={onClick}
+      onClick={!disabled ? onClick : undefined}
+      disabled={disabled}
     >
       <div className="flex items-center gap-2">
         <div

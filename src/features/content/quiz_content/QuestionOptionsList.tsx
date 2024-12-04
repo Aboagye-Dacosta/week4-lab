@@ -18,6 +18,7 @@ export default function QuestionOptionsList() {
           option={option}
           tag={optionTags[i]}
           isSelectedOption={selectedAnswer?.id == i}
+          disabled={hasAnswered}
           state={
             !hasAnswered
               ? "neutral"
